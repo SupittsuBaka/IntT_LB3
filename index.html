@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>КИУКИ-19-6 Шмидт Александр</title>
+    </head>
+    <body>
+        <script>
+            function upscroll(){
+                var galleryContainer, galleryLength, tempContainer, temp;
+                galleryContainer=document.getElementById("Gallery").getElementsByTagName("img");
+                galleryLength=galleryContainer.length;
+                tempContainer=[];
+                for(var i = 0; i<galleryLength; i++)
+                {
+                    tempContainer.push(galleryContainer[i].src)
+                }
+                for(var i = 0; i<galleryLength-1; i++)
+                {
+                    temp=tempContainer[i];
+                    tempContainer[i]=tempContainer[i+1];
+                    tempContainer[i+1]=temp;
+                }
+                for(var i = 0; i<galleryLength; i++)
+                {
+                    galleryContainer[i].src=tempContainer[i];
+                }
+            }
+            function downscroll(){
+                var galleryContainer, galleryLength, tempContainer, temp;
+                galleryContainer=document.getElementById("Gallery").getElementsByTagName("img");
+                galleryLength=galleryContainer.length;
+                tempContainer=[];
+                for(var i = 0; i<galleryLength; i++)
+                {
+                    tempContainer.push(galleryContainer[i].src)
+                }
+                for(var i = galleryLength-1; i>0; i--)
+                {
+                    temp=tempContainer[i];
+                    tempContainer[i]=tempContainer[i-1];
+                    tempContainer[i-1]=temp;
+                }
+                for(var i = 0; i<galleryLength; i++)
+                {
+                    galleryContainer[i].src=tempContainer[i];
+                }
+            }
+            function plussize(){
+                var galleryContainer, galleryLength;
+                galleryContainer=document.getElementById("Gallery").getElementsByTagName("img");
+                galleryLength=galleryContainer.length;
+                for(var i = 0; i<galleryLength; i++)
+                {
+                    galleryContainer[i].width += 10;
+                    galleryContainer[i].height += 10;
+                }
+            }
+            function minussize(){
+                var galleryContainer, galleryLength;
+                galleryContainer=document.getElementById("Gallery").getElementsByTagName("img");
+                galleryLength=galleryContainer.length;
+                for(var i = 0; i<galleryLength; i++)
+                {
+                    galleryContainer[i].width -= 10;
+                    galleryContainer[i].height -= 10;
+                }
+            }
+        </script>
+        <div class="container">
+            <div class="buttons">
+                <pre>Прокрутка: <input type="button" value="&#8679" onclick="upscroll()"><input type="button" value="&#8681" onclick="downscroll()"></pre>
+                <pre>Размер:    <input type="button" value="&#43" onclick="plussize()"><input type="button" value="&#8722" onclick="minussize()"></pre>
+                
+            </div>
+            <div id="Gallery">
+                <img src="1.png" width="200" height="200" alt="1"><br>
+                <img src="2.png" width="200" height="200" alt="2"><br>
+                <img src="3.png" width="200" height="200" alt="3"><br>
+                <img src="4.png" width="200" height="200" alt="4"><br>
+                <img src="5.png" width="200" height="200" alt="5"><br>
+            </div>
+        
+        </div>
+    </body>
+</html>

@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.buttons{
+    align-content: center;
+    position: -webkit-sticky;
+    left: 50px;
+    top: 50px;
+}
